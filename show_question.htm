@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Quizzz helper</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>.question {
+        border: 1px solid #aaa;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .answer {
+        width: 400px;
+    }
+    </style>
+</head>
+<body>
+<?php if($question): ?>
+<form method="get" name="answer">
+    <h3>Вопрос:</h3>
+    <input type="hidden" value="<?php echo $question[0]['rowid']; ?>" name="rowid">
+    <div class="question">
+        <pre><?php echo $question[0]['text']; ?></pre>
+    </div>
+    <h3>Ответы:</h3>
+    <div class="question">
+        <pre><?php echo $question[0]['answers']; ?></pre>
+    </div>
+    <label>Правильный ответ:</label>
+    <br><input name="answer" class="answer" value=""/>
+    <br>
+    <button>отправить</button>
+</form>
+<?php else: ?>
+<h3>Пока вопросов нет, все ясненько...</h3>
+<?php endif; ?>
+</body>
+</html>
